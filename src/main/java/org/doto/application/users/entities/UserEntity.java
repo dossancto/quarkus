@@ -1,8 +1,10 @@
 package org.doto.application.users.entities;
 import java.util.UUID;
 import lombok.Data;
+import lombok.Getter;
 
 @Data
+@Getter
 public class UserEntity {
     public UUID id;
     public String username;
@@ -17,10 +19,6 @@ public class UserEntity {
         this.fullname = fullname;
         this.email = email;
         this.password = password;
-    }
-
-    public String gEmail(){
-        return email;
     }
 }
 

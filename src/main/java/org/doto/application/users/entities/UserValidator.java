@@ -11,30 +11,33 @@ import static br.com.fluentvalidator.predicate.StringPredicate.stringSizeGreater
 public class UserValidator extends AbstractValidator<UserEntity> {
     @Override
     public void rules() {
-        ruleFor(UserEntity::gEmail)
+        var isrequired = "is required.";
+
+        ruleFor(UserEntity::getEmail)
         .must(not(nullValue()))
-            .withMessage("is required.")
-        .withFieldName("Email")
-        ;
+            .withMessage(isrequired)
+        .withFieldName("Email");
 
         ruleFor(UserEntity::getPassword)
         .must(not(nullValue()))
-            .withMessage("is required.")
+            .withMessage(isrequired)
+            .withFieldName("Password")
         .must(stringSizeGreaterThan(7))
             .withMessage("must have at least 8 digits.")
-        .withFieldName("Password");
+            .withFieldName("Password");
 
         ruleFor(UserEntity::getUsername)
         .must(not(nullValue()))
-            .withMessage("is required.")
+            .withMessage(isrequired)
+            .withFieldName("Username")
         .must(stringSizeGreaterThan(3))
-            .withMessage("must have at least 8 digits.")
-        .withFieldName("Username");
+            .withMessage("must have at least 4 digits.")
+            .withFieldName("Username");
 
         ruleFor(UserEntity::getFullname)
         .must(not(nullValue()))
-            .withMessage("is required.")
-        .withFieldName("Full Name");
+            .withMessage(isrequired)
+            .withFieldName("Full Name");
     }
     
 }

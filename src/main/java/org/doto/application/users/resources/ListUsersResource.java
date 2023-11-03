@@ -2,7 +2,9 @@ package org.doto.application.users.resources;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import java.util.List;
+import org.doto.application.users.entities.UserEntity;
 import org.doto.application.users.usecases.SelectUserUseCase;
+
 
 @Path("/account")
 public class ListUsersResource {
@@ -14,11 +16,10 @@ public class ListUsersResource {
     
     @GET
     @Path("/list")
-    public List<RegisterResponseDto> listAll(){
+    public List<UserEntity> listAll(){
         return _selectUser
         .listAll()
         .stream()
-        .map(RegisterResponseDto::fromModel)
         .toList();
     }
 
