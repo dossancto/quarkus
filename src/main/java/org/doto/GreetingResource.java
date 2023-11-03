@@ -1,4 +1,4 @@
-package org.acme;
+package org.doto;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -7,9 +7,10 @@ import jakarta.ws.rs.core.MediaType;
 
 @Path("/hello")
 public class GreetingResource {
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "Spring está morto!";
+        return "Hello from RESTEasy Reactive";
     }
 }

@@ -1,4 +1,4 @@
-# getting-started
+# doto-api
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
@@ -43,13 +43,12 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 ./mvnw package -Dnative -Dquarkus.native.container-build=true
 ```
 
-You can then execute your native executable with: `./target/getting-started-1.0.0-SNAPSHOT-runner`
+You can then execute your native executable with: `./target/doto-api-1.0.0-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
 
 ## Related Guides
 
-- RESTEasy Reactive ([guide](https://quarkus.io/guides/resteasy-reactive)): A Jakarta REST implementation utilizing build time processing and Vert.x. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it.
 
 ## Provided Code
 
