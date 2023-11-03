@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-public class ValidationFailException extends  RuntimeException implements Serializable {
+public class ValidationFailException extends RuntimeException implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private List<String> errors;

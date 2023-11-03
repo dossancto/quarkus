@@ -1,6 +1,8 @@
 package org.doto.application.todos.entities;
 import java.util.UUID;
+import lombok.Data;
 
+@Data
 public class TodoEntity {
     public UUID id;
     public String body;
