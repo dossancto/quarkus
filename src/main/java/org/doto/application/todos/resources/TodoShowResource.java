@@ -1,5 +1,5 @@
-
 package org.doto.application.todos.resources;
+
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import java.util.List;
