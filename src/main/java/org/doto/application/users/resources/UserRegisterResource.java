@@ -20,6 +20,6 @@ public class UserRegisterResource {
     public RegisterResponseDto registerUser(RegisterUserDto userDto){
         var user = _registerUser.execute(userDto);
 
-        return new RegisterResponseDto(user.email, user.fullname, user.username);
+        return RegisterResponseDto.fromModel(user);
     }
 }

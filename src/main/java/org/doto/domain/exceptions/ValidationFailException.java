@@ -15,6 +15,7 @@ public class ValidationFailException extends  RuntimeException implements Serial
         .map(e -> String.format("%s %s",e.getField(), e.getMessage()))
         .toList();
     }
+
     public ValidationFailException(String message, List<String> errros){
         super(message);
 

@@ -18,9 +18,7 @@ public class ListUsersResource {
         return _selectUser
         .listAll()
         .stream()
-        .map(u ->
-            new RegisterResponseDto(u.getEmail(), u.getFullname(), u.getUsername())
-        )
+        .map(RegisterResponseDto::fromModel)
         .toList();
     }
 
