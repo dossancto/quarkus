@@ -1,4 +1,4 @@
-package org.doto.application.todos.resources;
+package org.doto.ui.todos.resources;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

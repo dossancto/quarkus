@@ -1,4 +1,4 @@
-package org.doto.application.users.resources;
+package org.doto.ui.users.resources;
 import org.doto.application.users.entities.UserEntity;
 
 public record RegisterResponseDto(String id, String email, String fullname, String username) {

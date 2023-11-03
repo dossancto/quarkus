@@ -1,4 +1,4 @@
-package org.doto.application.users.resources;
+package org.doto.ui.users.resources;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import java.util.List;

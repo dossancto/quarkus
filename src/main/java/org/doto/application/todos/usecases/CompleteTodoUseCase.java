@@ -4,6 +4,7 @@ import jakarta.inject.Singleton;
 import java.util.UUID;
 import org.doto.application.todos.data.TodoRepository;
 import org.doto.application.todos.entities.TodoEntity;
+import org.doto.domain.exceptions.NotFoundException;
 
 @Singleton
 public class CompleteTodoUseCase {
@@ -17,7 +18,8 @@ public class CompleteTodoUseCase {
 
     public TodoEntity execute(UUID todoId, boolean completed)
     {
-        var todo = _todoRepository.findById(todoId).orElseThrow();
+        var todo = _todoRepository.findById(todoId)
+                .orElseThrow(() -> new NotFoundException(String.format("Todo with id '%s' not found.", todoId)));
 
         todo.completed = completed;
 

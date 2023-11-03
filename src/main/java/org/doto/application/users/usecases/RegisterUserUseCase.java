@@ -35,15 +35,18 @@ public class RegisterUserUseCase {
         return _userRepository.create(user);
     }
 
-    private void validContext(UserEntity user){
+    private void validContext(UserEntity user) {
         ValidationUtils.Validate(_userValidator, user, "Fail while validation user");
         assertUniqueEmail(user.email);
     }
 
-    private void assertUniqueEmail(String email){
-        if (_userRepository.findByEmail(email).isPresent()) {
-            var msg = String.format("Account with email '%s' already exists.", email);
-            throw new ValidationFailException(msg, new ArrayList<String>());
-        }
+    private void assertUniqueEmail(String email) {
+        _userRepository
+                .findByEmail(email)
+                .ifPresent(user -> {
+                    var msg = String.format("Account with email '%s' already exists.", user.email);
+                    throw new ValidationFailException(msg, new ArrayList<String>());
+                });
     }
+
 }

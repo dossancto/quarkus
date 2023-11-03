@@ -1,4 +1,5 @@
-package org.doto.application.todos.resources;
+package org.doto.ui.todos.resources;
+
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -29,6 +30,8 @@ public class TodoManageResource {
     @POST
     @Path("/create")
     public TodoEntity createTodo(CreateTodoDto content){
+        if(content == null){ throw new ValidationFailException("Empty request body", new ArrayList<String>()); }
+
         return _createTodo.execute(content);
     }
 

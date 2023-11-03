@@ -8,6 +8,7 @@ import java.util.UUID;
 import java.util.logging.Logger;
 import org.doto.application.todos.data.TodoRepository;
 import org.doto.application.todos.entities.TodoEntity;
+import org.doto.domain.exceptions.NotFoundException;
 
 class TempDb{
     public final List<TodoEntity> todos = new ArrayList<>();
@@ -30,9 +31,11 @@ public class MMTodoRepository implements TodoRepository {
 
     @Override
     public TodoEntity update(TodoEntity todo){
-        var t = findById(todo.id).orElseThrow();
+        var t = findById(todo.id).orElseThrow(() -> new NotFoundException(String.format("todo with id '%s' not found", todo.id)));
         var i = db.todos.indexOf(t);
+
         db.todos.set(i, todo);
+
         return todo;
     }
 
@@ -61,7 +64,11 @@ public class MMTodoRepository implements TodoRepository {
     }
 
     @Override
-    public void delete(UUID id){ }
+    public void delete(UUID id){
+        var t = findById(id);
+        if(t.isEmpty()){ return; }
 
+        db.todos.remove(t.get());
+    }
 }
 
